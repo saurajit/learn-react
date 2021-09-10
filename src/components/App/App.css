@@ -1,3 +1,15 @@
-.title {
-  font-weight: bold;
+.app-wrapper {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.app-wrapper::after,
+.app-wrapper::before {
+  content: "";
+  flex: 2;
+}
+
+.app-wrapper > * {
+  flex: 8
 }

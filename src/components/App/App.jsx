@@ -1,8 +1,11 @@
 import React from 'react';
 import './App.css'
+import TodoList from '../TodoList/TodoList';
 
 const App = () => (
-    <div className="title">Hello world</div>
+    <div className="app-wrapper">
+      <TodoList />
+    </div>
 )
 
 export default App;
