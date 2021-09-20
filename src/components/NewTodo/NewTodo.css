@@ -1,0 +1,42 @@
+fieldset {
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+input, textarea {
+  border-radius: 3px;
+}
+
+.form-control-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.new-todo-form {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+
+.new-todo-form > div {
+  margin: 0 5px;
+}
+
+.new-todo-form .title {
+  flex: 2;
+}
+
+.new-todo-form .description {
+  flex: 3;
+}
+
+.new-todo-form .description textarea {
+  resize: none;
+}

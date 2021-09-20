@@ -1,0 +1,8 @@
+.completed > *{
+  text-decoration: line-through;
+}
+
+.todo-item-wrapper {
+  border-radius: 3px;
+  box-shadow: 4px 3px 2px 2px #efefef;
+}
