@@ -3,6 +3,9 @@
 }
 
 .todo-item-wrapper {
+  border: 1px solid #efefef;
   border-radius: 3px;
   box-shadow: 4px 3px 2px 2px #efefef;
+  margin: 10px 0;
+  padding: 5px;
 }
