@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import {connect} from 'react-redux';
+import { createTodo } from '../../actions/todo.actions';
 import './NewTodo.css';
 
-const NewTodo = ({createHandler}) => {
+const NewTodo = ({todos, createHandler}) => {
   const [todo, createNewTodo] = useState({
     title: '',
     description: '',
@@ -49,4 +51,11 @@ const NewTodo = ({createHandler}) => {
   )
 }
 
-export default NewTodo;
+const mapStateToProps = state => ({
+  todos: state.todos
+});
+const mapDispatchToProps = dispatch => ({
+  createHandler: data => dispatch(createTodo(data))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewTodo);
