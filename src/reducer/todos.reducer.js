@@ -1,4 +1,18 @@
-import { ADD_TODO, REMOVE_TODO, CHANGE_STATUS } from "../actions/todo.actions";
+import { ADD_TODO, REMOVE_TODO, CHANGE_STATUS,
+  LOAD_TODOS_IN_PROGRESS,
+  LOAD_TODOS_FAILURE, LOAD_TODOS_SUCCESS } from "../actions/todo.actions";
+
+export const isLoading = (state = false, {type}) => {
+  switch (type) {
+    case LOAD_TODOS_IN_PROGRESS:
+      return true;
+    case LOAD_TODOS_SUCCESS:
+    case LOAD_TODOS_FAILURE:
+      return false;
+    default:
+      return state;
+  }
+}
 
 export const todos = (state = [], {type, payload}) => {
   switch (type) {
@@ -11,6 +25,10 @@ export const todos = (state = [], {type, payload}) => {
     case CHANGE_STATUS:
       state[payload.index].completed = payload.status;
       return [...[], ...state];
+    case LOAD_TODOS_SUCCESS:
+      return payload.todos;
+    case LOAD_TODOS_IN_PROGRESS:
+    case LOAD_TODOS_FAILURE:
     default:
       return state;
   }
