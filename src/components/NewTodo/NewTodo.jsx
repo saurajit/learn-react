@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import {connect} from 'react-redux';
-import { createTodo } from '../../actions/todo.actions';
+import { addTodo } from '../../thunk';
 import './NewTodo.css';
 
 const NewTodo = ({todos, createHandler}) => {
   const [todo, createNewTodo] = useState({
     title: '',
     description: '',
-    completed: false
+    status: false
   });
 
   function updateTodo(event) {
@@ -23,7 +23,7 @@ const NewTodo = ({todos, createHandler}) => {
     createNewTodo({
       title: '',
       description: '',
-      completed: false
+      status: false
     });
   }
 
@@ -55,7 +55,7 @@ const mapStateToProps = state => ({
   todos: state.todos
 });
 const mapDispatchToProps = dispatch => ({
-  createHandler: data => dispatch(createTodo(data))
+  createHandler: data => dispatch(addTodo(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewTodo);

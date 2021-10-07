@@ -4,18 +4,6 @@ export const createTodo = data => ({
   payload: data
 });
 
-export const REMOVE_TODO = 'REMOVE_TODO';
-export const removeTodo = index => ({
-  type: REMOVE_TODO,
-  payload: index
-});
-
-export const CHANGE_STATUS = 'CHANGE_STATUS';
-export const changeStatus = (status, index) => ({
-  type: CHANGE_STATUS,
-  payload: {status, index}
-});
-
 export const LOAD_TODOS_IN_PROGRESS = 'LOAD_TODOS_IN_PROGRESS';
 export const loadAllTodos = () => ({
   type: LOAD_TODOS_IN_PROGRESS
@@ -30,5 +18,41 @@ export const loadTodosSuccess = todos => ({
 export const LOAD_TODOS_FAILURE = 'LOAD_TODOS_FAILURE';
 export const loadTodosFailure = error => ({
   type: LOAD_TODOS_FAILURE,
+  payload: {error}
+});
+
+export const ADD_TODO_SUCCESS = 'ADD_TODO_SUCCESS';
+export const addTodoSuccess = payload => ({
+  type: ADD_TODO_SUCCESS,
+  payload
+});
+
+export const ADD_TODO_FAILURE = 'ADD_TODO_FAILURE';
+export const addTodoFailure = error => ({
+  type: ADD_TODO_FAILURE,
+  payload: {error}
+});
+
+export const UPDATE_TODO_SUCCESS = 'UPDATE_TODO_SUCCESS';
+export const updateTodoSuccess = payload => ({
+  type: UPDATE_TODO_SUCCESS,
+  payload
+});
+
+export const UPDATE_TODO_FAILURE = 'UPDATE_TODO_FAILURE';
+export const updateTodoFailure = error => ({
+  type: UPDATE_TODO_FAILURE,
+  payload: {error}
+});
+
+export const REMOVE_TODO_SUCCESS = 'REMOVE_TODO_SUCCESS';
+export const removeTodoSuccess = payload => ({
+  type: REMOVE_TODO_SUCCESS,
+  payload
+});
+
+export const REMOVE_TODO_FAILURE = 'REMOVE_TODO_FAILURE';
+export const removeTodoFailure = error => ({
+  type: REMOVE_TODO_FAILURE,
   payload: {error}
 });

@@ -9,7 +9,7 @@ const todoService = {
   addTodo: (todo) => {
     return fetch(API_URL, {
       method: 'POST',
-      body: todo
+      body: JSON.stringify(todo)
     })
   },
 
@@ -19,10 +19,10 @@ const todoService = {
     })
   },
 
-  changeStatus: (id, status = false) => {
+  changeStatus: (id, todo) => {
     return fetch(`${API_URL}/${id}`, {
       method: 'PUT',
-      body: {status}
+      body: JSON.stringify(todo)
     });
   }
 

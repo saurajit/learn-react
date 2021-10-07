@@ -1,7 +1,7 @@
 import React from "react";
 import './TodoListItem.css';
 
-const TodoListItem = ({ todo, index, onStatusChange, onRemove }) => (
+const TodoListItem = ({ todo, onStatusChange, onRemove }) => (
   <div className={`todo-item-wrapper ${todo.completed ? 'completed' : ''}`}>
     <div className="todo-item-details" >
       <h4>{todo.title || '<no title>'}</h4>
@@ -10,8 +10,8 @@ const TodoListItem = ({ todo, index, onStatusChange, onRemove }) => (
     {
       todo.completed ? '' :
         <div className="todo-item-actions">
-          <button onClick={() => onStatusChange(true, index)}>Mark as complete</button>
-          <button onClick={() => onRemove(index)}>Remove</button>
+          <button onClick={() => onStatusChange(todo, true)}>Mark as complete</button>
+          <button onClick={() => onRemove(todo)}>Remove</button>
         </div>
     }
   </div>
