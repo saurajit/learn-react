@@ -14,11 +14,9 @@ const TodoList = ({todos = [], removeTodo, changeStatus, isLoading, startLoading
       removeTodo(todo.id);
     }
   }
-  const loadingMessage = (<div>Loading todos....</div>)
+  const loadingMessage = (<div>Loading todos....</div>);
   const content = (
     <div>
-      <h2>Todo List</h2>
-      <NewTodo />
       {
         todos.length > 0 ?
           (
@@ -34,8 +32,13 @@ const TodoList = ({todos = [], removeTodo, changeStatus, isLoading, startLoading
       }
     </div>
   );
-
-  return isLoading ? loadingMessage : content;
+  return (
+    <div>
+      <h2>Todo List</h2>
+      <NewTodo />
+      { isLoading ? loadingMessage : content }
+    </div>
+  );
 }
 
 const mapStateToProps = state => ({

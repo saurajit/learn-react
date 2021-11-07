@@ -7,8 +7,7 @@ updateTodoFailure, updateTodoSuccess} from './actions/todo.actions';
 export const loadTodos = () => async(dispatch) => {
   try {
     dispatch(loadAllTodos());
-    const response = await todoService.getAll();
-    const todos = await response.json();
+    const todos = await todoService.getAll();
     dispatch(loadTodosSuccess(todos));
   } catch(error) {
     dispatch(loadTodosFailure(error));
@@ -17,8 +16,7 @@ export const loadTodos = () => async(dispatch) => {
 
 export const addTodo = (todo) => async(dispatch) => {
   try {
-    const response = await todoService.addTodo(todo);
-    const addedTodo = await response.json();
+    const addedTodo = await todoService.addTodo(todo);
     dispatch(loadTodos());
     dispatch(addTodoSuccess(addedTodo));
   } catch(error) {
@@ -28,8 +26,7 @@ export const addTodo = (todo) => async(dispatch) => {
 
 export const removeTodo = (id) => async(dispatch) => {
   try {
-    const response = await todoService.removeTodo(id);
-    const todo = await response.json();
+    const todo = await todoService.removeTodo(id);
     dispatch(loadTodos());
     dispatch(removeTodoSuccess(todo));
   } catch(error) {
@@ -40,9 +37,7 @@ export const removeTodo = (id) => async(dispatch) => {
 export const changeStatus = (todo, status) => async(dispatch) => {
   try {
     todo.status = status;
-    const response = await todoService.changeStatus(todo.id, todo)
-    const updatedTodo = await response.json();
-    console.log(updatedTodo);
+    const updatedTodo = await todoService.changeStatus(todo.id, todo)
     dispatch(loadTodos());
     dispatch(updateTodoSuccess(updatedTodo));
   } catch(error) {
